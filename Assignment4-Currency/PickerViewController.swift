@@ -14,7 +14,7 @@ class PickerViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
     var foreignCurrencyCode:String="RON"
     var homeCurrencyValue:String=""
     var foreignCurrencyValue:String=""
-    var start:bool=false
+    var start:Bool=false
     var currency:[String:String]=[:]
     var rate:String=""
     @IBOutlet weak var homeCurrencyPickerView: UIPickerView!
