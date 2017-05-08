@@ -6,7 +6,6 @@
 //  Copyright © 2017 Ajay Shenoy. All rights reserved.
 //
 import UIKit
-//UITableViewDelegate, UITableViewDataSource
 class ViewController: UITableViewController{
     let favPage:CurrencyClass=CurrencyClass.CurrencyCodeValue
     override func viewDidLoad() {
@@ -16,6 +15,8 @@ class ViewController: UITableViewController{
         view.addGestureRecognizer(swipeRight)
         print(favPage.fav)
             }
+    
+    // MARK: - Table configuration
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -27,7 +28,7 @@ class ViewController: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let fav=favPage.fav[indexPath.row]
         for (key1,key2) in fav{
-            if let home = favPage.currencyCode[key1], let forg = favPage.currencyCode[key2] {
+            if let home = favPage.currencyCode[key2], let forg = favPage.currencyCode[key1] {
                 cell.textLabel?.text = home+"->"+forg
             }
             else
@@ -43,31 +44,18 @@ class ViewController: UITableViewController{
         self.performSegue(withIdentifier: "unwindToConvertor", sender: self)
         
     }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Segue to convertor
     func HandleSwipe(_ sender:UIGestureRecognizer){
         self.performSegue(withIdentifier: "unwindToConvertor", sender: self)
     }
     
-   
-            //Data has to be a variable name in your RandomViewController
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    //}
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
