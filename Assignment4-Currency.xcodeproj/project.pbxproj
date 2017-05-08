@@ -26,7 +26,7 @@
 		669D18001E95DF870078F991 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		669D18031E95DF870078F991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		669D18051E95DF870078F991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		669D180C1E95DFED0078F991 /* convertsymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = convertsymbol.png; path = ../../Desktop/convertsymbol.png; sourceTree = "<group>"; };
+		669D180C1E95DFED0078F991 /* convertsymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = convertsymbol.png; path = "Assignment4-Currency/Assets.xcassets/convertsymbol.png"; sourceTree = "<group>"; };
 		669D18101E95E07E0078F991 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		66CBB2C81EA18CF000EEAF3B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		66E6DBD01EA4307F0045C61C /* CurrencyClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyClass.swift; sourceTree = "<group>"; };
