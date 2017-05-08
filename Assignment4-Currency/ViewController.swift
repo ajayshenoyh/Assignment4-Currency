@@ -26,8 +26,14 @@ class ViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let fav=favPage.fav[indexPath.row]
-        for (key,value) in fav{
-        cell.textLabel?.text = key+"->"+value
+        for (key1,key2) in fav{
+            if let home = favPage.currencyCode[key1], let forg = favPage.currencyCode[key2] {
+                cell.textLabel?.text = home+"->"+forg
+            }
+            else
+            {
+                cell.textLabel?.text = key1+"->"+key2
+            }
         }
         return cell
     }
