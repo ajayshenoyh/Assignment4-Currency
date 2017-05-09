@@ -2,9 +2,7 @@
 Name: Ajay Hosmar Shenoy<br />
 Section: CPSC 411 - 01<br />
 # Description 
-Currency Conversion between 160 coutries with features like adding favorite conversion for quick look through the exchange rates<br />
-The exchange rates are real-time with no delay <br />
-
+Currency Conversion between 160 coutries with features like adding favorite conversion for quick look through the exchange rates. With real-time exchange rates from Yahoo Finance server without delays<br />
 CurrencyClass.swift - Model file with Class declarations.<br />
 PickerViewController.swift - Interface were user selects Home currency and Foreign Currency for conversion and provide results instantly without delay .<br />
 FavoriteViewController.swift - Displays all the favorite currency conversions and segues to conversion page with respective picker value corresponding to that conversion.<br />
