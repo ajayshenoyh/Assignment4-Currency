@@ -15,4 +15,5 @@ Threading for faster execution: https://developer.apple.com/reference/foundation
 Array of dictionary and Dictionary manipulations: https://www.dotnetperls.com/array-dictionary-swift<br />
 Selecting Picker row programmatically: http://stackoverflow.com/questions/4894705/can-i-programmatically-scroll-to-a-desired-row-in-uipickerview<br />
 Table views basics tutorials: https://www.youtube.com/watch?v=fFpMiSsynXM <br />
+Currency Symbol generator: http://stackoverflow.com/questions/31999748/get-currency-symbols-from-currency-code-with-swift <br />
 CPSC 411 Class materials<br />
