@@ -35,7 +35,11 @@ class PickerViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
         foreignCurrencyPickerView.delegate=self
 
     }
-
+    //Function for currency code
+    func getSymbolForCurrencyCode(code: String) -> String? {
+        let locale = NSLocale(localeIdentifier: code)
+        return locale.displayName(forKey: NSLocale.Key.currencySymbol, value: code)
+    }
     
     @IBOutlet weak var foreignPickerViewValue: UIPickerView!
     @IBOutlet weak var homePickerViewValue: UIPickerView!
@@ -79,7 +83,23 @@ class PickerViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
             {
                 sleep(1)
             }
-         self.resultLabel.text="1 \(foreignCurrencyValue) = \(self.rate) \(homeCurrencyValue)"
+            let h:String
+            let f:String
+            if let temp1=getSymbolForCurrencyCode(code: homeCurrencyCode){
+                h=temp1
+            }
+            else
+            {
+                h=""
+            }
+            if let temp2=getSymbolForCurrencyCode(code: foreignCurrencyCode){
+                f=temp2
+            }
+            else
+            {
+                f=""
+            }
+         self.resultLabel.text="1 \(foreignCurrencyValue) (\(f))= \(self.rate) \(homeCurrencyValue)(\(h))"
             
             convertButton.isEnabled = true
             convertButton.setTitleColor(.red, for: .normal)
