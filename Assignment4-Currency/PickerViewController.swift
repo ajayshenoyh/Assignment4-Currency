@@ -13,6 +13,7 @@ class PickerViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
     var homeCurrencyCode:String="RON" // Initialize with staring Value
     var foreignCurrencyCode:String="RON"
     var homeCurrencyValue:String=""
+    var spaceFlag:Bool=false
     var foreignCurrencyValue:String=""
     var start:Bool=false
     var currency:[String:String]=[:]
@@ -39,6 +40,10 @@ class PickerViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
     func getSymbolForCurrencyCode(code: String) -> String? {
         let locale = NSLocale(localeIdentifier: code)
         return locale.displayName(forKey: NSLocale.Key.currencySymbol, value: code)
+    }
+    func roundToPlaces(value: Double,places: Int) -> Double{
+        let divisor = pow(10.0, Double(places))
+        return round(value*divisor)/divisor
     }
     
     @IBOutlet weak var foreignPickerViewValue: UIPickerView!
@@ -99,7 +104,23 @@ class PickerViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
             {
                 f=""
             }
-         self.resultLabel.text="1 \(foreignCurrencyValue) (\(f))= \(self.rate) \(homeCurrencyValue)(\(h))"
+            for (cur,_) in convertPage.currencySpace
+            {
+                if Double(self.rate) != nil{
+                    if(foreignCurrencyCode==cur){
+                    spaceFlag=true
+                        break
+                }
+                }
+            }
+        
+                if spaceFlag{
+                self.resultLabel.text="1 \(foreignCurrencyValue) (\(f))= \(Int(Double(self.rate)!)) \(homeCurrencyValue)(\(h))"
+                }
+            else {
+                self.resultLabel.text="1 \(foreignCurrencyValue) (\(f))= \(self.rate) \(homeCurrencyValue)(\(h))"
+            }
+         
             
             convertButton.isEnabled = true
             convertButton.setTitleColor(.red, for: .normal)

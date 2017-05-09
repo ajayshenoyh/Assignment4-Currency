@@ -11,6 +11,7 @@ class CurrencyClass {
     var currencyCode: [String:String]
     var fav = [[String:String]]()
     var clickedFav: [String:String]
+    var currencySpace: [String:String]
     var row:Int
     init()
     {
@@ -174,6 +175,22 @@ class CurrencyClass {
                            "ZAR":"South African Rand",
                            "ZMK":"Kwacha",
                            "ZWD":"Zimbabwe Dollar"]
+        self.currencySpace=["BIF":"0",
+                            "CLP":"0",
+                            "CVE":"0",
+                            "DJF":"0",
+                            "GNF":"0",
+                            "ISK":"0",
+                            "JPY":"0",
+                            "KMF":"0",
+                            "KRW":"0",
+                            "RWF":"0",
+                            "UGX":"0",
+                            "VND":"0",
+                            "VUV":"0",
+                            "XAF":"0",
+                            "XPF":"0",
+]
         self.fav=[[String:String]]()
         self.clickedFav=[String:String]()
         self.row=0
