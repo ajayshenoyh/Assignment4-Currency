@@ -26,6 +26,7 @@ class PickerViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
         view.addGestureRecognizer(swipeLeft)
         currency=convertPage.currencyCode // Grabing the currency values from CurrencyClass.
         start=true
+        print(start)
         homeCurrencyPickerView.dataSource=self
         homeCurrencyPickerView.tag=1
         homeCurrencyPickerView.delegate=self
@@ -72,10 +73,11 @@ class PickerViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
         
         if Thread.isMainThread { // To access the value quicker and display
             if(start){
-                sleep(1) //At the start it need some time
+                sleep(2) //At the start it need some time
+                start=false
             }else
             {
-                sleep(2)
+                sleep(1)
             }
          self.resultLabel.text="1 \(foreignCurrencyValue) = \(self.rate) \(homeCurrencyValue)"
             

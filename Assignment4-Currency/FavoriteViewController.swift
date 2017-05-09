@@ -6,7 +6,7 @@
 //  Copyright © 2017 Ajay Shenoy. All rights reserved.
 //
 import UIKit
-class ViewController: UITableViewController{
+class FavoriteViewController: UITableViewController{
     let favPage:CurrencyClass=CurrencyClass.CurrencyCodeValue
     override func viewDidLoad() {
         super.viewDidLoad()

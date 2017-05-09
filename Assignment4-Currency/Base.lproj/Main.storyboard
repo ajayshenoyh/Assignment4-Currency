@@ -80,6 +80,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="convertsymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="G7b-T5-WHU">
                                 <rect key="frame" x="171" y="287" width="87" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.75963231590000002" green="0.90698474650000005" blue="0.90698474650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Foreign Currency:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQ4-67-dkH">
                                 <rect key="frame" x="14" y="366" width="380" height="21"/>
@@ -89,7 +90,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="hFo-Lj-iFC"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -107,10 +108,10 @@
             </objects>
             <point key="canvasLocation" x="589.85507246376812" y="-124.72826086956523"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorite View Controller-->
         <scene sceneID="mlG-K8-muc">
             <objects>
-                <tableViewController id="Lel-DL-KuT" customClass="ViewController" customModule="Assignment4_Currency" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Lel-DL-KuT" customClass="FavoriteViewController" customModule="Assignment4_Currency" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="62" sectionHeaderHeight="28" sectionFooterHeight="28" id="IJs-w2-8OP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
