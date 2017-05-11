@@ -17,6 +17,7 @@ class PickerViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
     var foreignCurrencyValue:String=""
     var start:Bool=false
     var currency:[String:String]=[:]
+    var topcurrency:[String:String]=[:]
     var rate:String=""
     @IBOutlet weak var homeCurrencyPickerView: UIPickerView!
     @IBOutlet weak var foreignCurrencyPickerView: UIPickerView!
@@ -25,6 +26,7 @@ class PickerViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
         let swipeLeft:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe)) //Swiping Function
         swipeLeft.direction=UISwipeGestureRecognizerDirection.left
         view.addGestureRecognizer(swipeLeft)
+        topcurrency=convertPage.topCurrency
         currency=convertPage.currencyCode // Grabing the currency values from CurrencyClass.
         start=true
         print(start)
@@ -50,9 +52,17 @@ class PickerViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
     @IBOutlet weak var homePickerViewValue: UIPickerView!
     @IBOutlet weak var resultLabel: UILabel!
     
+    @IBOutlet weak var currencyAllSwitch: UISwitch!
+    
+    @IBAction func currencySwitchAction(_ sender: UISwitch) {
+        self.homeCurrencyPickerView.reloadAllComponents()
+        self.foreignCurrencyPickerView.reloadAllComponents()
+    }
     // MARK: - Conversion code
     @IBOutlet weak var convertButton: UIButton!
     @IBAction func convertCurrency(_ sender: UIButton) {
+        homeCurrencyPickerView.reloadAllComponents()
+        foreignCurrencyPickerView.reloadAllComponents()
         if homeCurrencyCode==foreignCurrencyCode{
             //Reference : https://www.ioscreator.com/tutorials/display-an-alert-view-in-ios8-with-swift
             let alert = UIAlertController(title: "Currency Conversion", message: "Use different currency", preferredStyle: UIAlertControllerStyle.alert)
@@ -104,23 +114,9 @@ class PickerViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
             {
                 f=""
             }
-            for (cur,_) in convertPage.currencySpace
-            {
-                if Double(self.rate) != nil{
-                    if(foreignCurrencyCode==cur){
-                    spaceFlag=true
-                        break
-                }
-                }
-            }
-        
-                if spaceFlag{
-                self.resultLabel.text="1 \(foreignCurrencyValue) (\(f))= \(Int(Double(self.rate)!)) \(homeCurrencyValue)(\(h))"
-                }
-            else {
+            
                 self.resultLabel.text="1 \(foreignCurrencyValue) (\(f))= \(self.rate) \(homeCurrencyValue)(\(h))"
-            }
-         
+ 
             
             convertButton.isEnabled = true
             convertButton.setTitleColor(.red, for: .normal)
@@ -146,14 +142,31 @@ class PickerViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         //return count of data in Dictionary
+        if(currencyAllSwitch.isOn)
+        {
         return currency.count
+        }
+        else
+        {
+            return topcurrency.count
+        }
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         //return values from the Dictionary to Picker Data Source
-        return "\(Array(currency.values)[row])"
+        if(currencyAllSwitch.isOn)
+        {
+            return "\(Array(currency.values)[row])"
+        }
+        else
+        {
+            return "\(Array(topcurrency.values)[row])"
+        }
+        
     }
     //Selection between two picker using Tag
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if(currencyAllSwitch.isOn)
+        {
         if pickerView.tag == 1 {
             homeCurrencyCode=Array(currency.keys)[row] as String
             homeCurrencyValue=Array(currency.values)[row] as String
@@ -162,6 +175,20 @@ class PickerViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
             foreignCurrencyCode=Array(currency.keys)[row] as String
             foreignCurrencyValue=Array(currency.values)[row] as String
             
+        }
+        }
+        else
+        {
+            if pickerView.tag == 1 {
+                homeCurrencyCode=Array(topcurrency.keys)[row] as String
+                homeCurrencyValue=Array(topcurrency.values)[row] as String
+                
+            } else if pickerView.tag == 2{
+                foreignCurrencyCode=Array(topcurrency.keys)[row] as String
+                foreignCurrencyValue=Array(topcurrency.values)[row] as String
+                
+            }
+  
         }
     }
     

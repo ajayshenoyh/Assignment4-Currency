@@ -9,9 +9,10 @@
 import Foundation
 class CurrencyClass {
     var currencyCode: [String:String]
+    var topCurrency: [String:String]
     var fav = [[String:String]]()
     var clickedFav: [String:String]
-    var currencySpace: [String:String]
+    
     var row:Int
     init()
     {
@@ -175,22 +176,25 @@ class CurrencyClass {
                            "ZAR":"South African Rand",
                            "ZMK":"Kwacha",
                            "ZWD":"Zimbabwe Dollar"]
-        self.currencySpace=["BIF":"0",
-                            "CLP":"0",
-                            "CVE":"0",
-                            "DJF":"0",
-                            "GNF":"0",
-                            "ISK":"0",
-                            "JPY":"0",
-                            "KMF":"0",
-                            "KRW":"0",
-                            "RWF":"0",
-                            "UGX":"0",
-                            "VND":"0",
-                            "VUV":"0",
-                            "XAF":"0",
-                            "XPF":"0",
-]
+        
+        self.topCurrency=["EUR":"Euro",
+                          "GBP":"Pound Sterling",
+                          "USD":"US Dollar",
+                          "KWD":"Kuwaiti Dinar",
+                          "BHD":"Bahraini Dinar",
+                          "JPY":"Japanese yen",
+                          "AUD":"Australian Dollar",
+                          "AED":"United Arab Emirates dirham",
+                          "INR":"Indian Rupee",
+                          "MXN":"Mexican Peso",
+                          "SAR":"Saudi Riyal",
+                          "CAD":"Canadian Dollar",
+                          "IQD":"Iraqi Dinar",
+                          "HKD":"Hong Kong Dollar",
+                          "NIO":"Cordoba Oro",
+                          "NPR":"Nepalese Rupee",
+                          "NZD":"New Zealand Dollar",
+                          "OMR":"Rial Omani"]
         self.fav=[[String:String]]()
         self.clickedFav=[String:String]()
         self.row=0
